@@ -14,6 +14,7 @@ namespace TravelPal
             UserManager.GenerateDefaultUsers();
 
 
+
         }
 
         private void btLogIn_Click(object sender, RoutedEventArgs e)
@@ -32,7 +33,21 @@ namespace TravelPal
                 return;
             }
 
-            //Log in user & send to travelwindow
+            //foreach (var user in UserManager.allUsers)
+            //{
+            //    if ((user.Username == txtUsername.Text) && (user.Password == pwPassword.Password))
+            //    {
+            //        // Found matching user
+
+
+            //        // Open new travelwindow
+
+            //        TravelsWindow travelsWindow = new TravelsWindow();
+            //        travelsWindow.Show();
+            //        Close();
+            //    }
+            //}
+
 
             TravelsWindow travelsWindow = new TravelsWindow();
             travelsWindow.Show();

@@ -6,16 +6,16 @@ namespace TravelPal
 
     public static class UserManager
     {
-        public static List<User> allUsers = new();
-        public static List<Admin> allAdmins = new();
+        public static List<IUser> allUsers = new();
 
-        //public string SignedInUser { get; set; }
-
+        public static IUser signedInUser { get; set; }
 
 
-        public static void RemoveUser()
+
+
+        public static bool RemoveUser()
         {
-
+            return true;
         }
         public static bool UpdateUsername()
         {
@@ -41,11 +41,19 @@ namespace TravelPal
             {
                 if (user.Username == username && user.Password == password)
                 {
+                    SignInUser(user);
                     return true;
                 }
             }
             return false;
         }
+
+        public static void SignInUser(IUser user)
+        {
+            UserManager.signedInUser = user;
+        }
+
+
         public static User CreateUser(string username, string password, Countries country)
         {
             return new User(username, password, country);
@@ -56,11 +64,16 @@ namespace TravelPal
         {
             User user = new User("user", "password", Countries.Afghanistan);
             allUsers.Add(user);
+
+            Admin admin = new Admin("admin", "password", Countries.Afghanistan);
+            allUsers.Add(admin);
+
+
         }
         public static void GenerateAdmin()
         {
-            Admin admin = new Admin("admin", "password", Countries.Afghanistan);
-            allAdmins.Add(admin);
+            //Admin admin = new Admin("admin", "password", Countries.Afghanistan);
+            //all.Add(admin);
         }
 
         public static Countries ParseEnum(string enumToParse)

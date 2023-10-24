@@ -10,6 +10,8 @@ namespace TravelPal
         public TravelsWindow()
         {
             InitializeComponent();
+            lbLoggedInUser.Content = UserManager.signedInUser.Username;
+
         }
 
         private void btLogOut_Click(object sender, RoutedEventArgs e)
