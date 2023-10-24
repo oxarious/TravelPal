@@ -23,7 +23,15 @@ namespace TravelPal
 
         private void btAboutus_Click(object sender, RoutedEventArgs e)
         {
+            //btShowDetails.Visibility = Visibility.Hidden;
             MessageBox.Show("This is a fully made up company that has been giving students headaches for 2 weeks. Still a very good exercise to learn more about code");
+        }
+
+        private void btAddTravel_Click(object sender, RoutedEventArgs e)
+        {
+            AddTravelWindow addTravelWindon = new AddTravelWindow();
+            addTravelWindon.Show();
+            Close();
         }
     }
 }

@@ -59,7 +59,7 @@
             Content="Add New Travel"
             Grid.Row="5"
             Grid.Column="1"
-            Grid.RowSpan="2"/>
+            Grid.RowSpan="2" Click="btAddTravel_Click"/>
         <Label 
             Name="lbLoggedInUser"
             Content="Logged in USer"

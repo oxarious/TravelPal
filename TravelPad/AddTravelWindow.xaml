@@ -7,6 +7,76 @@
         mc:Ignorable="d"
         Title="AddTravelWindow" Height="450" Width="800">
     <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="20"/>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+            <ColumnDefinition Width="20"/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="20"/>
+            <RowDefinition Height="40"/>
+            <RowDefinition Height="40"/>
+            
+            <RowDefinition Height="40" />
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition Height="20"/>
+        </Grid.RowDefinitions>
+        <Label 
+            
+            Content="Travel Type"
+            
+            Grid.Row="1"
+            Grid.Column="1"/>
         
+        <Label 
+            Content="City"
+            Grid.Row="1"
+            Grid.Column="2"/>
+        <Label Content="Country"
+               Grid.Row="1"
+               Grid.Column="3"/>
+        <Label Content="No of travelers"
+               Grid.Row="1"
+               Grid.Column="4"/>
+        <ComboBox
+            
+            Name="cbTravelType"
+            Grid.Row="2"
+            Grid.Column="1"
+            />
+        <ComboBox 
+            Name ="cbCountry"
+            Grid.Row="2"
+            Grid.Column="3"/>
+        <TextBox
+            Name="txtCity"
+            Grid.Row="2"
+            Grid.Column="2"
+            />
+        <TextBox
+            Name="txtTravelers"
+            Grid.Row="2"
+            Grid.Column="4"
+            />
+        <CheckBox 
+            Content="All Inclusive?"
+            Name="cbxAllInclusive"
+            Grid.Row="3"
+            Grid.Column="1"
+            />
+        <TextBox
+            
+            Name="txtMeetingDetails"
+            Grid.Row="4"
+            Grid.Column="1"/>
+
+
+
+
     </Grid>
 </Window>
