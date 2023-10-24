@@ -13,26 +13,30 @@ namespace TravelPal
             InitializeComponent();
             UserManager.GenerateDefaultUsers();
 
+
         }
 
         private void btLogIn_Click(object sender, RoutedEventArgs e)
         {
 
-            if (txtUsername.Text == null && txtPassword.Text == null)
+            //Checks if input boxes are empty
+            if (string.IsNullOrEmpty(txtUsername.Text) || string.IsNullOrEmpty(pwPassword.Password))
             {
                 MessageBox.Show("Input fields were empty");
                 return;
             }
-
-            if (!UserManager.CheckLogIn(txtUsername.Text, txtPassword.Text))
+            //Checks if username is taken
+            if (!UserManager.CheckLogIn(txtUsername.Text, pwPassword.Password))
             {
                 MessageBox.Show("Username or Password was not correct");
                 return;
             }
 
             //Log in user & send to travelwindow
-            MessageBox.Show("logged in");
 
+            TravelsWindow travelsWindow = new TravelsWindow();
+            travelsWindow.Show();
+            Close();
 
 
 
@@ -57,6 +61,13 @@ namespace TravelPal
             //{
             //    MessageBox.Show("Input fields were empty");
             //}
+        }
+
+        private void btRegister_Click(object sender, RoutedEventArgs e)
+        {
+            RegisterWindow registerWindow = new RegisterWindow();
+            registerWindow.Show();
+            Close();
         }
     }
 }

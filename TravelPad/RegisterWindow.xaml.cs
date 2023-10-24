@@ -1,16 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Shapes;
 
 namespace TravelPal
 {
@@ -22,6 +11,23 @@ namespace TravelPal
         public RegisterWindow()
         {
             InitializeComponent();
+            cbCountries.ItemsSource = Enum.GetNames(typeof(Countries));
+        }
+
+        private void btRegisterUser_Click(object sender, RoutedEventArgs e)
+        {
+            if (!UserManager.CheckUsernameAvailability(txtRwUsername.Text))
+            {
+                MessageBox.Show("That username is already taken");
+            }
+            User newUser = UserManager.CreateUser(txtRwUsername.Text, txtRwPassword.Text, UserManager.ParseEnum(cbCountries.SelectedItem.ToString()));
+            UserManager.allUsers.Add(newUser);
+
+            MessageBox.Show("User added succesfully");
+
+            MainWindow mainWindow = new MainWindow();
+            mainWindow.Show();
+            Close();
         }
     }
 }

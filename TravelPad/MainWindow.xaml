@@ -31,7 +31,7 @@
         <TextBox Name="txtUsername"
                  Grid.Row="2"
                  Grid.Column="2"/>
-        <TextBox Name ="txtPassword"
+        <PasswordBox Name ="pwPassword"
                  Grid.Row="3"
                  Grid.Column="2"/>
        
@@ -44,6 +44,6 @@
         <Button Name="btRegister"
                 Grid.Column="2"
                 Grid.Row="6"
-                Content="If you want to register a new user, press here"/>
+                Content="If you want to register a new user, press here" Click="btRegister_Click"/>
     </Grid>
 </Window>

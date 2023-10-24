@@ -4,8 +4,12 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:TravelPal"
+     
+       
         mc:Ignorable="d"
         Title="RegisterWindow" Height="450" Width="800" Background="MediumSlateBlue">
+
+ 
     <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="20"/>
@@ -44,10 +48,16 @@
             Grid.Row="3"
             Grid.Column="2"/>
         <ComboBox
-            Name="cbRwCountry"
-            Grid.Row="4"
-            Grid.Column="2"/>
         
+           Name="cbCountries"
+           Grid.Row="4"
+           Grid.Column="2"/>
+        <Button Name ="btRegisterUser" 
+                Content="Register User "
+                Grid.Column="2"
+                Grid.Row="5" Click="btRegisterUser_Click"
+                 />
+           
 
 
     </Grid>

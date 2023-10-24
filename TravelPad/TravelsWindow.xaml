@@ -7,6 +7,67 @@
         mc:Ignorable="d"
         Title="TravelsWindow" Height="450" Width="800">
     <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="20"/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition Height="4*"/>
+            <RowDefinition/>
+            <RowDefinition/>
+
+            <RowDefinition/>
+            <RowDefinition Height="20"/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="20"/>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+            <ColumnDefinition Width="20"/>
+        </Grid.ColumnDefinitions>
+
+        <ListView
+           Name="lvTravelPlans"
+           Grid.Column="1"
+           Grid.Row="3"
+           Grid.RowSpan="2"
+            Grid.ColumnSpan="2"/>
         
+        <Button 
+            Name="btShowDetails"
+            Content="Show Details"
+            Grid.Row="5"
+            Grid.Column="2"
+            />
+        <Button 
+            Name ="btRemoveTravel"
+            Content="Remove"
+            Grid.Row="6"
+            Grid.Column="2"/>
+        <Button 
+            Name="btLogOut"
+            Content="Log Out"
+            Grid.Row="7"
+            Grid.Column="2" Click="btLogOut_Click"/>
+        <Button 
+          Name="btAboutus"
+          Content="About Us"
+          Grid.Row="7"
+          Grid.Column="1" Click="btAboutus_Click"/>
+        <Button 
+            Name="btAddTravel"
+            Content="Add New Travel"
+            Grid.Row="5"
+            Grid.Column="1"
+            Grid.RowSpan="2"/>
+        <Label 
+            Name="lbLoggedInUser"
+            Content="Logged in USer"
+            Grid.Row="1"
+            Grid.Column="1"
+            Grid.RowSpan="2"
+            FontSize="30"
+            HorizontalContentAlignment="Center"
+            />
     </Grid>
 </Window>
