@@ -1,4 +1,5 @@
 ﻿using System.Windows;
+using System.Windows.Controls;
 
 namespace TravelPal
 {
@@ -7,12 +8,16 @@ namespace TravelPal
     /// </summary>
     public partial class TravelsWindow : Window
     {
+
+
         public TravelsWindow()
         {
             InitializeComponent();
             lbLoggedInUser.Content = UserManager.signedInUser.Username;
-
+            lvTravelPlans.ItemsSource = TravelManager.allTravels;
         }
+
+
 
         private void btLogOut_Click(object sender, RoutedEventArgs e)
         {
@@ -31,6 +36,29 @@ namespace TravelPal
         {
             AddTravelWindow addTravelWindon = new AddTravelWindow();
             addTravelWindon.Show();
+            Close();
+        }
+
+        private void btRemoveTravel_Click(object sender, RoutedEventArgs e)
+        {
+            if (lvTravelPlans.SelectedItem == null)
+            {
+                MessageBox.Show($"Please select a travel you want to remove");
+            }
+
+            //TravelManager.allTravels.Remove(lvTravelPlans.ItemsSource);
+            //lvTravelPlans.ItemsSource.(lvTravelPlans.SelectedItem);
+            //lvTravelPlans.UpdateLayout();
+            //lvTravelPlans.Items.Remove(ItemsControl.ItemsSourceProperty((lvTravelPlans.SelectedItem));
+
+        }
+
+        private void btShowDetails_Click(object sender, RoutedEventArgs e)
+        {
+            ListViewItem lvItem = new ListViewItem();
+            lvItem = lvTravelPlans.SelectedItem as ListViewItem;
+            TravelDetailsWindow detailsWindow = new TravelDetailsWindow(lvTravelPlans.SelectedItem);
+            detailsWindow.Show();
             Close();
         }
     }

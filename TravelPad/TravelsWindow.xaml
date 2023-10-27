@@ -37,13 +37,13 @@
             Name="btShowDetails"
             Content="Show Details"
             Grid.Row="5"
-            Grid.Column="2"
+            Grid.Column="2" Click="btShowDetails_Click"
             />
         <Button 
             Name ="btRemoveTravel"
             Content="Remove"
             Grid.Row="6"
-            Grid.Column="2"/>
+            Grid.Column="2" Click="btRemoveTravel_Click"/>
         <Button 
             Name="btLogOut"
             Content="Log Out"

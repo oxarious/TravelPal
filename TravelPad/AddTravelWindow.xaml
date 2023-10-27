@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:TravelPal"
         mc:Ignorable="d"
-        Title="AddTravelWindow" Height="450" Width="800">
+        Title="AddTravelWindow" Height="800" Width="800">
     <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="20"/>
@@ -22,6 +22,9 @@
             <RowDefinition Height="40"/>
             
             <RowDefinition Height="40" />
+            <RowDefinition Height=" 50"/>
+            <RowDefinition/>
+            <RowDefinition/>
             <RowDefinition/>
             <RowDefinition/>
             <RowDefinition Height="20"/>
@@ -72,8 +75,35 @@
         <TextBox
             
             Name="txtMeetingDetails"
-            Grid.Row="4"
+            Grid.Row="5"
             Grid.Column="1"/>
+
+        <ListView
+            Name="lvTravel"
+            Grid.Row="5"
+            Grid.Column="2"
+            Grid.ColumnSpan="4"/>
+        <Button 
+            Name="btSaveTravel"
+            Content="Save Travel"
+            Grid.Row="6"
+            Grid.Column="4" Click="btSaveTravel_Click"/>
+        <Button 
+            Name="btGoBack"
+            Content="Go Back"
+            Grid.Row="6"
+            Grid.Column="5" Click="btGoBack_Click"/>
+     
+
+        <Label 
+            Name ="lbWorkDetails"
+            Content="Type work details below"
+            Background="DarkSalmon"
+            Height="30"
+            Grid.Column="1"
+            Grid.Row="4"
+          
+            />
 
 
 

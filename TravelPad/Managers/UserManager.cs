@@ -82,6 +82,12 @@ namespace TravelPal
             Countries country = (Countries)Enum.Parse(typeof(Countries), enumToParse);
             return country;
         }
+        public static TravelType x(string enumToParse)
+        {
+
+            TravelType travelType = (TravelType)Enum.Parse(typeof(TravelType), enumToParse);
+            return travelType;
+        }
 
         //internal static User CreateUser(string text1, string text2, string? v)
         //{

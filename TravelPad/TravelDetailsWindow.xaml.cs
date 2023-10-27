@@ -1,4 +1,5 @@
 ﻿using System.Windows;
+using System.Windows.Controls;
 
 namespace TravelPal
 {
@@ -7,10 +8,19 @@ namespace TravelPal
     /// </summary>
     public partial class TravelDetailsWindow : Window
     {
-        public TravelDetailsWindow()
+        private object selectedItem;
+
+        public TravelDetailsWindow(ListViewItem lvItem)
         {
             InitializeComponent();
 
+        }
+
+        public TravelDetailsWindow(object selectedItem)
+        {
+            this.selectedItem = selectedItem;
+            InitializeComponent();
+            lvTravelDetails.ItemsSource = (System.Collections.IEnumerable)selectedItem;
         }
     }
 }
