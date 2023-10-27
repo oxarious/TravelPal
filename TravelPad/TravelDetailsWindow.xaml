@@ -32,7 +32,7 @@
             Name="btGoBack"
             Content="Go Back"
             Grid.Row="2"
-            Grid.Column="1"/>
+            Grid.Column="1" Click="btGoBack_Click"/>
 
     </Grid>
 </Window>

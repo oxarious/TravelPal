@@ -50,7 +50,7 @@
             
             Name="cbTravelType"
             Grid.Row="2"
-            Grid.Column="1"
+            Grid.Column="1" SelectionChanged="cbTravelType_SelectionChanged"
             />
         <ComboBox 
             Name ="cbCountry"

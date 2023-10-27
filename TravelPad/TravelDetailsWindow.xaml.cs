@@ -1,5 +1,5 @@
 ﻿using System.Windows;
-using System.Windows.Controls;
+using TravelPal.TravelClasses;
 
 namespace TravelPal
 {
@@ -8,19 +8,29 @@ namespace TravelPal
     /// </summary>
     public partial class TravelDetailsWindow : Window
     {
-        private object selectedItem;
 
-        public TravelDetailsWindow(ListViewItem lvItem)
+        //TODO: FÅ DENNA ATT FUNKA
+        public TravelDetailsWindow()
         {
             InitializeComponent();
+
+
 
         }
-
-        public TravelDetailsWindow(object selectedItem)
+        public TravelDetailsWindow(Travel travel)
         {
-            this.selectedItem = selectedItem;
             InitializeComponent();
-            lvTravelDetails.ItemsSource = (System.Collections.IEnumerable)selectedItem;
+            lvTravelDetails.ItemsSource = new System.Collections.Generic.List<Travel>()
+            {
+                travel
+            };
+        }
+
+        private void btGoBack_Click(object sender, RoutedEventArgs e)
+        {
+            TravelsWindow detailsWindow = new();
+            detailsWindow.Show();
+            Close();
         }
     }
 }

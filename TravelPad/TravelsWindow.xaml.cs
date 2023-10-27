@@ -1,5 +1,5 @@
 ﻿using System.Windows;
-using System.Windows.Controls;
+using TravelPal.TravelClasses;
 
 namespace TravelPal
 {
@@ -53,13 +53,27 @@ namespace TravelPal
 
         }
 
+
+        // TODO: FÅ DENNA ATT FUNKA 
         private void btShowDetails_Click(object sender, RoutedEventArgs e)
         {
-            ListViewItem lvItem = new ListViewItem();
-            lvItem = lvTravelPlans.SelectedItem as ListViewItem;
-            TravelDetailsWindow detailsWindow = new TravelDetailsWindow(lvTravelPlans.SelectedItem);
+
+            //ListViewItem lvItem = new ListViewItem();
+            //if (lvItem != null)
+            //    lvItem.Tag = lvItem.ToString();
+            //lvItem.Content = lvItem.ToString();
+            //TravelDetailsWindow detailsWindow = new TravelDetailsWindow(lvItem);
+            //detailsWindow.Show();
+            //Close();
+
+            //ListViewItem selectedItem = (ListViewItem)lvTravelPlans.SelectedItem;
+            //Travel travel = (Travel)selectedItem.Tag;
+            TravelDetailsWindow detailsWindow = new TravelDetailsWindow((Travel)lvTravelPlans.SelectedItem);
             detailsWindow.Show();
             Close();
         }
+
     }
 }
+
+

@@ -16,17 +16,29 @@ namespace TravelPal
             InitializeComponent();
             cbCountry.ItemsSource = Enum.GetNames(typeof(Countries));
             cbTravelType.ItemsSource = Enum.GetNames(typeof(TravelType));
-            //cbxAllInclusive.Visibility = Visibility.Hidden;
-            //lbWorkDetails.Visibility = Visibility.Hidden;
-            //if (cbTravelType.SelectedItem == "Work")
-            //{
-            //    lbWorkDetails.Visibility = Visibility.Visible;
-            //}
+            cbxAllInclusive.Visibility = Visibility.Hidden;
+            lbWorkDetails.Visibility = Visibility.Hidden;
+
 
             //if ((string)cbTravelType.SelectedItem == "Work")
             //{
             //    lbWorkDetails.Visibility = Visibility.Visible;
             //}
+
+        }
+        private void cbTravelType_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            var selectedItem = (string)cbTravelType.SelectedItem;
+            if (selectedItem == "Work")
+            {
+                lbWorkDetails.Visibility = Visibility.Visible;
+                cbxAllInclusive.Visibility = Visibility.Hidden;
+            }
+            if (selectedItem == "Vacation")
+            {
+                cbxAllInclusive.Visibility = Visibility.Visible;
+                lbWorkDetails.Visibility = Visibility.Hidden;
+            }
 
         }
 
@@ -43,7 +55,7 @@ namespace TravelPal
                     ListViewItem listViewItem = new ListViewItem();
                     listViewItem.Tag = workTrip;
                     listViewItem.Content = workTrip;
-                    //lvTravel.Items.Add(listViewItem);
+                    lvTravel.Items.Add(listViewItem);
                     MessageBox.Show($"Travel saved. Go back to get a better overview of your travels");
                     TravelManager.allTravels.Add(workTrip);
                 }
@@ -54,7 +66,7 @@ namespace TravelPal
                     ListViewItem listViewItemVacation = new ListViewItem();
                     listViewItemVacation.Tag = vacation;
                     listViewItemVacation.Content = vacation;
-                    //lvTravel.Items.Add(listViewItemVacation);
+                    lvTravel.Items.Add(listViewItemVacation);
                     MessageBox.Show($"Travel saved. Go back to get a better overview of your travels");
                     TravelManager.allTravels.Add(vacation);
 
@@ -76,7 +88,13 @@ namespace TravelPal
 
         }
 
-
+        //private void cbTravelType_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        //{
+        //        if (cbTravelType.SelectedItem == "Work")
+        //    {
+        //        lbWorkDetails.Visibility = Visibility.Visible;
+        //    }
+        //}
     }
 }
 
