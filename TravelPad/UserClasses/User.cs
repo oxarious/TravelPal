@@ -9,12 +9,13 @@ namespace TravelPal
         public string Password { get; set; }
         public Countries Country { get; set; }
 
-        public List<Travel> allTravels = new();
-        public User(string username, string password, Countries country)
+        public List<Travel> AllTravels = new();
+        public User(string username, string password, Countries country, List<Travel> allTravels)
         {
             Username = username;
             Password = password;
             Country = country;
+            AllTravels = allTravels;
         }
 
     }

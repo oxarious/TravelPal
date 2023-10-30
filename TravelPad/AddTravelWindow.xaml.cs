@@ -59,11 +59,10 @@ namespace TravelPal
                     listViewItem.Content = workTrip;
                     //lvTravel.Items.Add(listViewItem);
                     MessageBox.Show($"Travel saved. Go back to get a better overview of your travels");
-                    TravelManager.allTravels.Add(workTrip);
+                    //TravelManager.allTravels.Add(workTrip);
 
-                    // LUCAS KOD 
-                    //User user = UserManager.signedInUser as User;
-                    //user.allTravels.Add(workTrip);
+                    User user = UserManager.signedInUser as User;
+                    user.allTravels.Add(workTrip);
 
 
                 }
@@ -76,7 +75,9 @@ namespace TravelPal
                     listViewItemVacation.Content = vacation;
                     //lvTravel.Items.Add(listViewItemVacation);
                     MessageBox.Show($"Travel saved. Go back to get a better overview of your travels");
-                    TravelManager.allTravels.Add(vacation);
+                    //TravelManager.allTravels.Add(vacation);
+                    User user = UserManager.signedInUser as User;
+                    user.allTravels.Add(vacation);
 
 
                     //ListViewItem lvitem = new(); 

@@ -1,12 +1,11 @@
 ﻿using System;
-using System.Collections.Generic;
 using TravelPal.TravelClasses;
 
 namespace TravelPal
 {
     public static class TravelManager
     {
-        public static List<Travel> allTravels = new List<Travel>();
+        //public static List<Travel> allTravels = new List<Travel>();
 
 
 

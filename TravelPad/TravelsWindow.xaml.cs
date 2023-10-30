@@ -13,7 +13,9 @@ namespace TravelPal
         {
             InitializeComponent();
             lbLoggedInUser.Content = UserManager.signedInUser.Username;
-            lvTravelPlans.ItemsSource = TravelManager.allTravels;
+            //lvTravelPlans.ItemsSource = TravelManager.allTravels;
+            //lvTravelPlans.ItemsSource = User.allTravels;
+            lvTravelPlans.ItemsSource =
         }
 
 
