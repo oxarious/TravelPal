@@ -27,7 +27,10 @@ namespace TravelPal
         }
         public static void RemoveTravel()
         {
-            //ItemsControl.
+            foreach (Travel travel in allTravels)
+            {
+
+            }
         }
         //private static WorkTrip AddWorkTrip()
         //{
@@ -40,5 +43,15 @@ namespace TravelPal
             Countries country = (Countries)Enum.Parse(typeof(Countries), enumToParse);
             return country;
         }
+        //public static void DoEverything()
+        //{
+        //    ListViewItem CreateListViewItem(Object x, string )
+        //    {
+        //        ListViewItem lvitem = new();
+        //        lvitem.Tag = vacation;
+        //        lvitem.Content = vacation;
+        //        return lvitem;
+        //    }
+        //}
     }
 }

@@ -1,5 +1,4 @@
 ﻿using System.Windows;
-using TravelPal.TravelClasses;
 
 namespace TravelPal
 {
@@ -16,14 +15,6 @@ namespace TravelPal
 
 
 
-        }
-        public TravelDetailsWindow(Travel travel)
-        {
-            InitializeComponent();
-            lvTravelDetails.ItemsSource = new System.Collections.Generic.List<Travel>()
-            {
-                travel
-            };
         }
 
         private void btGoBack_Click(object sender, RoutedEventArgs e)

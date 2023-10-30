@@ -26,6 +26,8 @@ namespace TravelPal
             //}
 
         }
+
+        //OM work är valt visas "Work details" eller om vacation är valt visas "All inclusive" 
         private void cbTravelType_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             var selectedItem = (string)cbTravelType.SelectedItem;
@@ -55,9 +57,15 @@ namespace TravelPal
                     ListViewItem listViewItem = new ListViewItem();
                     listViewItem.Tag = workTrip;
                     listViewItem.Content = workTrip;
-                    lvTravel.Items.Add(listViewItem);
+                    //lvTravel.Items.Add(listViewItem);
                     MessageBox.Show($"Travel saved. Go back to get a better overview of your travels");
                     TravelManager.allTravels.Add(workTrip);
+
+                    // LUCAS KOD 
+                    //User user = UserManager.signedInUser as User;
+                    //user.allTravels.Add(workTrip);
+
+
                 }
                 if ((string)cbTravelType.SelectedItem == "Vacation")
                 {
@@ -66,11 +74,15 @@ namespace TravelPal
                     ListViewItem listViewItemVacation = new ListViewItem();
                     listViewItemVacation.Tag = vacation;
                     listViewItemVacation.Content = vacation;
-                    lvTravel.Items.Add(listViewItemVacation);
+                    //lvTravel.Items.Add(listViewItemVacation);
                     MessageBox.Show($"Travel saved. Go back to get a better overview of your travels");
                     TravelManager.allTravels.Add(vacation);
 
 
+                    //ListViewItem lvitem = new(); 
+                    //lvitem.Tag= vacation;
+                    //lvitem.Content = vacation;
+                    //return lvitem; 
                 }
 
             }

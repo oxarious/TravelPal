@@ -1,5 +1,4 @@
 ﻿using System.Windows;
-using TravelPal.TravelClasses;
 
 namespace TravelPal
 {
@@ -41,11 +40,16 @@ namespace TravelPal
 
         private void btRemoveTravel_Click(object sender, RoutedEventArgs e)
         {
+
             if (lvTravelPlans.SelectedItem == null)
             {
                 MessageBox.Show($"Please select a travel you want to remove");
             }
+            var selectedItem = lvTravelPlans.SelectedItem;
+            if (selectedItem != null)
+            {
 
+            }
             //TravelManager.allTravels.Remove(lvTravelPlans.ItemsSource);
             //lvTravelPlans.ItemsSource.(lvTravelPlans.SelectedItem);
             //lvTravelPlans.UpdateLayout();
@@ -68,7 +72,7 @@ namespace TravelPal
 
             //ListViewItem selectedItem = (ListViewItem)lvTravelPlans.SelectedItem;
             //Travel travel = (Travel)selectedItem.Tag;
-            TravelDetailsWindow detailsWindow = new TravelDetailsWindow((Travel)lvTravelPlans.SelectedItem);
+            TravelDetailsWindow detailsWindow = new TravelDetailsWindow();
             detailsWindow.Show();
             Close();
         }
