@@ -1,11 +1,12 @@
 ﻿using System;
+using System.Collections.Generic;
 using TravelPal.TravelClasses;
 
 namespace TravelPal
 {
     public static class TravelManager
     {
-        //public static List<Travel> allTravels = new List<Travel>();
+        public static List<Travel> allTravels = new();
 
 
 
@@ -24,16 +25,16 @@ namespace TravelPal
         {
             return new Vacation(country, destination, numberOfTravelers, isAllIncusive);
         }
-        public static void RemoveTravel()
-        {
-            foreach (Travel travel in allTravels)
-            {
+        //public static void RemoveTravel()
+        //{
+        //    foreach (Travel travel in allTravels)
+        //    {
 
-            }
-        }
+        //    }
+        //}
         //private static WorkTrip AddWorkTrip()
         //{
-        //    allTravels.Add(AddWorkTrip());
+        //    AllTravels.Add(AddWorkTrip());
 
         //}
         public static Countries ParseEnum(string enumToParse)
@@ -42,6 +43,27 @@ namespace TravelPal
             Countries country = (Countries)Enum.Parse(typeof(Countries), enumToParse);
             return country;
         }
+
+        //public static void RemoveTravel(Travel travel)
+        //{
+
+        //    allTravels.Remove(travel);
+
+        //}
+
+        //public static void GenerateTravel()
+        //{
+        //    WorkTrip workTrip = new WorkTrip(Countries.CongoRepublicOf, "Helsingborg", 1, "Gonna be lit");
+        //    Vacation vacation = new Vacation(Countries.CongoRepublicOf, "Malmö", 1, false);
+        //    allTravels.Add(vacation);
+        //    allTravels.Add(workTrip);
+        //    ListViewItem listViewItem = new ListViewItem();
+        //    listViewItem.Tag = workTrip;
+        //    listViewItem.Content = workTrip;
+        //    allTravels.Add(workTrip);
+
+        //}
+
         //public static void DoEverything()
         //{
         //    ListViewItem CreateListViewItem(Object x, string )

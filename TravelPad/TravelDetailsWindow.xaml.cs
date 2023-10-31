@@ -12,7 +12,11 @@ namespace TravelPal
         public TravelDetailsWindow()
         {
             InitializeComponent();
-
+            if (UserManager.signedInUser is User)
+            {
+                User u = UserManager.signedInUser as User;
+                lvTravelDetails.ItemsSource = u.AllTravels;
+            }
 
 
         }

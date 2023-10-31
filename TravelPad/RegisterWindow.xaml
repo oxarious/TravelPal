@@ -51,11 +51,13 @@
         
            Name="cbCountries"
            Grid.Row="4"
-           Grid.Column="2"/>
+           Grid.Column="2"
+            Background="MintCream"/>
         <Button Name ="btRegisterUser" 
                 Content="Register User "
                 Grid.Column="2"
                 Grid.Row="5" Click="btRegisterUser_Click"
+                Background="MintCream"
                  />
            
 

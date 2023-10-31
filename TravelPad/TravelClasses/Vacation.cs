@@ -13,7 +13,7 @@ namespace TravelPal
 
         public override string ToString()
         {
-            return $" Country: {Country}, Destination: {Destination}, Number of Travelers {NumberOfTravalers}, All Inclusive? {AllInclusive}";
+            return $" Country: {Country}, Destination: {Destination}, Number of Travelers {NumberOfTravelers}, All Inclusive? {AllInclusive}";
         }
     }
 }

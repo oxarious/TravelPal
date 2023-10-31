@@ -62,7 +62,7 @@ namespace TravelPal
                     //TravelManager.allTravels.Add(workTrip);
 
                     User user = UserManager.signedInUser as User;
-                    user.allTravels.Add(workTrip);
+                    user.AllTravels.Add(workTrip);
 
 
                 }
@@ -77,7 +77,7 @@ namespace TravelPal
                     MessageBox.Show($"Travel saved. Go back to get a better overview of your travels");
                     //TravelManager.allTravels.Add(vacation);
                     User user = UserManager.signedInUser as User;
-                    user.allTravels.Add(vacation);
+                    user.AllTravels.Add(vacation);
 
 
                     //ListViewItem lvitem = new(); 

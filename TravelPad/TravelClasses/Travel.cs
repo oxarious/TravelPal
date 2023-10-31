@@ -6,24 +6,24 @@
 
 
         public string Destination { get; set; }
-        public int NumberOfTravalers { get; set; }
+        public int NumberOfTravelers { get; set; }
 
 
 
-        public Travel(Countries country, string destination, int numberOfTravalers)
+        public Travel(Countries country, string destination, int numberOfTravelers)
         {
             Country = country;
 
             Destination = destination;
 
-            NumberOfTravalers = numberOfTravalers;
+            NumberOfTravelers = numberOfTravelers;
 
 
 
         }
         public virtual string GetInfo()
         {
-            return $"{Country}, {Destination}, {NumberOfTravalers}";
+            return $"Country: {Country}, Destination: {Destination}, How many travelers: {NumberOfTravelers}";
         }
     }
 }

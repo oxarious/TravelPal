@@ -16,7 +16,7 @@ namespace TravelPal
 
 
         {
-            return $"Country: {Country}, Destination:  {Destination}, No of Travelers {NumberOfTravalers}, Meeting detils: {MeetingDetails} ";
+            return $"Country: {Country}, Destination:  {Destination}, No of Travelers {NumberOfTravelers}, Meeting details: {MeetingDetails} ";
         }
     }
 }

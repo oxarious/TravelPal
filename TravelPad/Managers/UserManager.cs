@@ -68,6 +68,10 @@ namespace TravelPal
             Admin admin = new Admin("admin", "password", Countries.Afghanistan);
             allUsers.Add(admin);
 
+            WorkTrip workTrip = new WorkTrip(Countries.CongoRepublicOf, "Helsingborg", 1, "Gonna be lit");
+            Vacation vacation = new Vacation(Countries.CongoRepublicOf, "Malmö", 1, false);
+
+
 
         }
         public static void GenerateAdmin()
@@ -89,15 +93,6 @@ namespace TravelPal
             return travelType;
         }
 
-        //internal static User CreateUser(string text1, string text2, string? v)
-        //{
-        //    throw new NotImplementedException();
-        //}
-
-        //internal static User CreateUser(string text1, string text2, string? v)
-        //{
-        //    throw new NotImplementedException();
-        //}
     }
 
 }

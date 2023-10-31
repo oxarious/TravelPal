@@ -13,9 +13,20 @@ namespace TravelPal
         {
             InitializeComponent();
             lbLoggedInUser.Content = UserManager.signedInUser.Username;
+
+
             //lvTravelPlans.ItemsSource = TravelManager.allTravels;
             //lvTravelPlans.ItemsSource = User.allTravels;
-            lvTravelPlans.ItemsSource =
+            if (UserManager.signedInUser is User user)
+            {
+
+                //User u = UserManager.signedInUser as User;
+                lvTravelPlans.ItemsSource = user.AllTravels;
+            }
+            if (UserManager.signedInUser is Admin admin)
+            {
+
+            }
         }
 
 
@@ -30,7 +41,7 @@ namespace TravelPal
         private void btAboutus_Click(object sender, RoutedEventArgs e)
         {
             //btShowDetails.Visibility = Visibility.Hidden;
-            MessageBox.Show("This is a fully made up company that has been giving students headaches for 2 weeks. Still a very good exercise to learn more about code");
+            MessageBox.Show("Welcome to our Travel app where you can add travels, overview them, edit them and get more details on them. To add a new travel, press : Add New Travel. ");
         }
 
         private void btAddTravel_Click(object sender, RoutedEventArgs e)
@@ -43,15 +54,42 @@ namespace TravelPal
         private void btRemoveTravel_Click(object sender, RoutedEventArgs e)
         {
 
-            if (lvTravelPlans.SelectedItem == null)
-            {
-                MessageBox.Show($"Please select a travel you want to remove");
-            }
-            var selectedItem = lvTravelPlans.SelectedItem;
-            if (selectedItem != null)
-            {
 
+            //var selectedItem = lvTravelPlans.SelectedItem;
+            //TravelManager.allTravels.Remove((TravelClasses.Travel)selectedItem);
+            //lvTravelPlans.UpdateLayout();
+
+
+            if (UserManager.signedInUser is User user)
+            {
+                user.AllTravels.Remove((TravelClasses.Travel)lvTravelPlans.SelectedItem);
+                lvTravelPlans.Items.Remove(lvTravelPlans.SelectedItem);
+                lvTravelPlans.UpdateLayout();
             }
+
+
+
+
+            //TODO: Fixa den här skiten
+            //ListViewItem? selectedItem = lvTravelPlans.SelectedItem as ListViewItem;
+            //if (lvTravelPlans.SelectedItem == null)
+            //{
+            //    MessageBox.Show($"Please select a travel you want to remove");
+            //}
+
+
+            //var selectedItemone = lvTravelPlans.SelectedItem;
+            //else
+            //{
+
+
+            //    Travel travelToRemove = (Travel?)selectedItem.Tag;
+            //    TravelManager.RemoveTravel(travelToRemove);
+
+            //}
+
+
+            //}
             //TravelManager.allTravels.Remove(lvTravelPlans.ItemsSource);
             //lvTravelPlans.ItemsSource.(lvTravelPlans.SelectedItem);
             //lvTravelPlans.UpdateLayout();
