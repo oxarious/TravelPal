@@ -1,4 +1,6 @@
-﻿using System.Windows;
+﻿using System.Collections.Generic;
+using System.Windows;
+using TravelPal.TravelClasses;
 
 namespace TravelPal
 {
@@ -12,23 +14,76 @@ namespace TravelPal
         public TravelsWindow()
         {
             InitializeComponent();
-            lbLoggedInUser.Content = UserManager.signedInUser.Username;
 
+
+
+            lbLoggedInUser.Content = UserManager.signedInUser.Username;
+            if (UserManager.signedInUser is Admin)
+            {
+                btShowDetails.Visibility = Visibility.Hidden;
+            }
+            UpdateListView();
 
             //lvTravelPlans.ItemsSource = TravelManager.allTravels;
             //lvTravelPlans.ItemsSource = User.allTravels;
-            if (UserManager.signedInUser is User user)
-            {
+            //if (UserManager.signedInUser is User u)
+            //{
 
-                //User u = UserManager.signedInUser as User;
-                lvTravelPlans.ItemsSource = user.AllTravels;
-            }
-            if (UserManager.signedInUser is Admin admin)
+            //    //User u = UserManager.signedInUser as User;
+
+            //    lvTravelPlans.ItemsSource = u.AllTravels;
+            //}
+            //if (UserManager.signedInUser is Admin)
+            //{
+            //    List<Travel> allUserTravels = new();
+            //    foreach (IUser user in UserManager.allUsers)
+            //    {
+            //        if (user is User)
+            //        {
+            //            User castedUser = (User)user;
+            //            allUserTravels.AddRange(castedUser.AllTravels);
+            //        }
+
+            //    }
+            //    lvTravelPlans.ItemsSource = allUserTravels;
+            //}
+        }
+
+        // Adds usertravels to the listview. If you're logged in as admin it draws all travels from all users.
+        private void UpdateListView()
+        {
+            lvTravelPlans.Items.Clear();
+            if (UserManager.signedInUser is User u)
             {
+                foreach (Travel travel in u.AllTravels)
+                {
+
+                    lvTravelPlans.Items.Add(travel);
+
+                }
+            }
+            else if (UserManager.signedInUser is Admin a)
+            {
+                List<Travel> allUserTravels = new();
+                foreach (IUser user in UserManager.allUsers)
+                {
+                    if (user is User)
+                    {
+                        User castedUser = (User)user;
+                        allUserTravels.AddRange(castedUser.AllTravels);
+                    }
+
+                }
+                foreach (Travel t in allUserTravels)
+                {
+                    lvTravelPlans.Items.Add(t);
+                }
+
+
+
 
             }
         }
-
 
 
         private void btLogOut_Click(object sender, RoutedEventArgs e)
@@ -55,17 +110,49 @@ namespace TravelPal
         {
 
 
-            //var selectedItem = lvTravelPlans.SelectedItem;
-            //TravelManager.allTravels.Remove((TravelClasses.Travel)selectedItem);
+
+
+
+
+
+
+            if (UserManager.signedInUser is User u)
+            {
+                var selectedItem = lvTravelPlans.SelectedIndex;
+                u.AllTravels.RemoveAt(selectedItem);
+            }
+            if (UserManager.signedInUser is Admin a)
+            {
+                var adminSelectedItem = lvTravelPlans.SelectedItem;
+                foreach (IUser user in UserManager.allUsers)
+                {
+                    if (user is User)
+                    {
+                        User castedUser = (User)user;
+                        castedUser.AllTravels.Remove((Travel)adminSelectedItem);
+
+                    }
+
+                }
+            }
+            UpdateListView();
+
+
+
+
+
+            //}
+
+
             //lvTravelPlans.UpdateLayout();
 
 
-            if (UserManager.signedInUser is User user)
-            {
-                user.AllTravels.Remove((TravelClasses.Travel)lvTravelPlans.SelectedItem);
-                lvTravelPlans.Items.Remove(lvTravelPlans.SelectedItem);
-                lvTravelPlans.UpdateLayout();
-            }
+            //if (UserManager.signedInUser is User user)
+            //{
+            //    user.AllTravels.Remove((TravelClasses.Travel)lvTravelPlans.SelectedItem);
+
+            //    lvTravelPlans.UpdateLayout();
+            //}
 
 
 
@@ -101,6 +188,8 @@ namespace TravelPal
         // TODO: FÅ DENNA ATT FUNKA 
         private void btShowDetails_Click(object sender, RoutedEventArgs e)
         {
+
+
 
             //ListViewItem lvItem = new ListViewItem();
             //if (lvItem != null)

@@ -20,6 +20,8 @@ namespace TravelPal
             {
                 MessageBox.Show("That username is already taken");
             }
+
+            //TODO: Fix so it doesnt crash if you dont have any inputs
             User newUser = UserManager.CreateUser(txtRwUsername.Text, txtRwPassword.Text, UserManager.ParseEnum(cbCountries.SelectedItem.ToString()));
             UserManager.allUsers.Add(newUser);
 

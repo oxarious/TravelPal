@@ -68,8 +68,8 @@ namespace TravelPal
             Admin admin = new Admin("admin", "password", Countries.Afghanistan);
             allUsers.Add(admin);
 
-            WorkTrip workTrip = new WorkTrip(Countries.CongoRepublicOf, "Helsingborg", 1, "Gonna be lit");
-            Vacation vacation = new Vacation(Countries.CongoRepublicOf, "Malmö", 1, false);
+            //WorkTrip workTrip = new WorkTrip(Countries.CongoRepublicOf, "Helsingborg", 1, "Gonna be lit");
+            //Vacation vacation = new Vacation(Countries.CongoRepublicOf, "Malmö", 1, false);
 
 
 
