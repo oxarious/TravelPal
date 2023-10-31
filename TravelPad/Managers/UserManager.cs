@@ -10,8 +10,17 @@ namespace TravelPal
 
         public static IUser signedInUser { get; set; }
 
+        private static bool isInitialized = false;
 
 
+        public static void InitializeUserManager()
+        {
+            if (!isInitialized)
+            {
+                GenerateDefaultUsers();
+                isInitialized = true;
+            }
+        }
 
         public static bool RemoveUser()
         {
@@ -60,20 +69,21 @@ namespace TravelPal
         }
 
 
-        public static void GenerateDefaultUsers()
+        private static void GenerateDefaultUsers()
         {
-            User user = new User("user", "password", Countries.Afghanistan);
+            User user = new User("user", "password", Countries.CongoRepublicOf);
             allUsers.Add(user);
 
-            Admin admin = new Admin("admin", "password", Countries.Afghanistan);
+            Admin admin = new Admin("admin", "password", Countries.CongoRepublicOf);
             allUsers.Add(admin);
 
-            //WorkTrip workTrip = new WorkTrip(Countries.CongoRepublicOf, "Helsingborg", 1, "Gonna be lit");
-            //Vacation vacation = new Vacation(Countries.CongoRepublicOf, "Malmö", 1, false);
-
-
+            WorkTrip workTrip = new WorkTrip(Countries.CongoRepublicOf, "Helsingborg", 1, "Gonna be lit");
+            user.AllTravels.Add(workTrip);
+            Vacation vacation = new Vacation(Countries.CongoRepublicOf, "Malmö", 1, false);
+            user.AllTravels.Add(vacation);
 
         }
+
         public static void GenerateAdmin()
         {
             //Admin admin = new Admin("admin", "password", Countries.Afghanistan);
@@ -92,6 +102,8 @@ namespace TravelPal
             TravelType travelType = (TravelType)Enum.Parse(typeof(TravelType), enumToParse);
             return travelType;
         }
+
+
 
     }
 

@@ -11,9 +11,16 @@ namespace TravelPal
 
         }
 
+
         public override string ToString()
         {
-            return $" Country: {Country}, Destination: {Destination}, Number of Travelers {NumberOfTravelers}, All Inclusive? {AllInclusive}";
+
+            if (AllInclusive)
+            {
+                return $" Country: {Country}, Destination: {Destination}, Number of Travelers {NumberOfTravelers}, All Inclusive? YES";
+            }
+            else
+                return $" Country: {Country}, Destination: {Destination}, Number of Travelers {NumberOfTravelers}, All Inclusive? NO";
         }
     }
 }

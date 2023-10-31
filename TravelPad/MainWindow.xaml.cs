@@ -8,10 +8,12 @@ namespace TravelPal
     public partial class MainWindow : Window
     {
 
+
         public MainWindow()
         {
             InitializeComponent();
-            UserManager.GenerateDefaultUsers();
+            UserManager.InitializeUserManager();
+
 
 
 
