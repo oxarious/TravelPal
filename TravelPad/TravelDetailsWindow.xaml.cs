@@ -1,4 +1,5 @@
 ﻿using System.Windows;
+using TravelPal.TravelClasses;
 
 namespace TravelPal
 {
@@ -9,13 +10,14 @@ namespace TravelPal
     {
 
         //TODO: FÅ DENNA ATT FUNKA
-        public TravelDetailsWindow()
+        public TravelDetailsWindow(Travel travel)
         {
             InitializeComponent();
             if (UserManager.signedInUser is User)
             {
-                User u = UserManager.signedInUser as User;
-                lvTravelDetails.ItemsSource = u.AllTravels;
+                lvTravelDetails.Items.Add(travel);
+                //User u = UserManager.signedInUser as User;
+                //lvTravelDetails.ItemsSource = u.AllTravels;
             }
 
 

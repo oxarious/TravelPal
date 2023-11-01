@@ -12,7 +12,7 @@ namespace TravelPal
 
         private static bool isInitialized = false;
 
-
+        //Makes sure that users only get intizalized ones in Main Window so if you go back and forth it doesnt create new versions of "user" and "admin" with their travels. 
         public static void InitializeUserManager()
         {
             if (!isInitialized)

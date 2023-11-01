@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using System.Windows;
+using System.Windows.Controls;
 using TravelPal.TravelClasses;
 
 namespace TravelPal
@@ -50,6 +51,41 @@ namespace TravelPal
         }
 
         // Adds usertravels to the listview. If you're logged in as admin it draws all travels from all users.
+        //private void UpdateListView()
+        //{
+        //    lvTravelPlans.Items.Clear();
+        //    if (UserManager.signedInUser is User u)
+        //    {
+        //        foreach (Travel travel in u.AllTravels)
+        //        {
+
+        //            lvTravelPlans.Items.Add(travel);
+
+        //        }
+        //    }
+        //    else if (UserManager.signedInUser is Admin a)
+        //    {
+        //        List<Travel> allUserTravels = new();
+        //        foreach (IUser user in UserManager.allUsers)
+        //        {
+        //            if (user is User)
+        //            {
+        //                User castedUser = (User)user;
+        //                allUserTravels.AddRange(castedUser.AllTravels);
+        //            }
+
+        //        }
+        //        foreach (Travel t in allUserTravels)
+        //        {
+        //            lvTravelPlans.Items.Add(t);
+        //        }
+
+
+
+
+        //    }
+        //}
+
         private void UpdateListView()
         {
             lvTravelPlans.Items.Clear();
@@ -58,8 +94,11 @@ namespace TravelPal
                 foreach (Travel travel in u.AllTravels)
                 {
 
-                    lvTravelPlans.Items.Add(travel);
-
+                    lvTravelPlans.Items.Add(new ListViewItem()
+                    {
+                        Content = travel.Country,
+                        Tag = travel
+                    });
                 }
             }
             else if (UserManager.signedInUser is Admin a)
@@ -74,14 +113,14 @@ namespace TravelPal
                     }
 
                 }
-                foreach (Travel t in allUserTravels)
+                foreach (Travel travel in allUserTravels)
                 {
-                    lvTravelPlans.Items.Add(t);
+                    lvTravelPlans.Items.Add(new ListViewItem()
+                    {
+                        Content = travel.Country,
+                        Tag = travel
+                    });
                 }
-
-
-
-
             }
         }
 
@@ -189,7 +228,7 @@ namespace TravelPal
         private void btShowDetails_Click(object sender, RoutedEventArgs e)
         {
 
-
+            var selectedItem = (Travel)((ListViewItem)lvTravelPlans.SelectedItem).Tag;
 
             //ListViewItem lvItem = new ListViewItem();
             //if (lvItem != null)
@@ -201,7 +240,7 @@ namespace TravelPal
 
             //ListViewItem selectedItem = (ListViewItem)lvTravelPlans.SelectedItem;
             //Travel travel = (Travel)selectedItem.Tag;
-            TravelDetailsWindow detailsWindow = new TravelDetailsWindow();
+            TravelDetailsWindow detailsWindow = new TravelDetailsWindow((Travel)selectedItem);
             detailsWindow.Show();
             Close();
         }
