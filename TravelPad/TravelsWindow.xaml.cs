@@ -101,7 +101,7 @@ namespace TravelPal
                     });
                 }
             }
-            else if (UserManager.signedInUser is Admin a)
+            else if (UserManager.signedInUser is Admin)
             {
                 List<Travel> allUserTravels = new();
                 foreach (IUser user in UserManager.allUsers)
@@ -240,7 +240,7 @@ namespace TravelPal
 
             //ListViewItem selectedItem = (ListViewItem)lvTravelPlans.SelectedItem;
             //Travel travel = (Travel)selectedItem.Tag;
-            TravelDetailsWindow detailsWindow = new TravelDetailsWindow((Travel)selectedItem);
+            TravelDetailsWindow detailsWindow = new TravelDetailsWindow(selectedItem);
             detailsWindow.Show();
             Close();
         }

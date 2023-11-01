@@ -67,7 +67,7 @@ namespace TravelPal
                     if ((string)cbTravelType.SelectedItem == "Work")
                     {
 
-                        WorkTrip workTrip = TravelManager.AddWorkTrip(TravelManager.ParseEnum(cbCountry.Text), txtCity.Text, int.Parse(txtTravelers.Text), txtMeetingDetails.Text);
+                        WorkTrip workTrip = TravelManager.AddWorkTrip(TravelManager.ParseEnum(cbCountry.Text), txtCity.Text, parsedValue, txtMeetingDetails.Text);
                         ListViewItem listViewItem = new ListViewItem();
                         listViewItem.Tag = workTrip;
                         listViewItem.Content = workTrip;
@@ -83,7 +83,7 @@ namespace TravelPal
                     if ((string)cbTravelType.SelectedItem == "Vacation")
                     {
 
-                        Vacation vacation = TravelManager.AddVacation(TravelManager.ParseEnum(cbCountry.Text), txtCity.Text, int.Parse(txtTravelers.Text), cbxAllInclusive.IsChecked ?? false); ;
+                        Vacation vacation = TravelManager.AddVacation(TravelManager.ParseEnum(cbCountry.Text), txtCity.Text, parsedValue, cbxAllInclusive.IsChecked ?? false); ;
                         ListViewItem listViewItemVacation = new ListViewItem();
                         listViewItemVacation.Tag = vacation;
                         listViewItemVacation.Content = vacation;
