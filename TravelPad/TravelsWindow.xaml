@@ -74,5 +74,12 @@
             FontSize="30"
             HorizontalContentAlignment="Center"
             />
+        <Label 
+            Name="lbMyTraves"  
+            Content="My Travels"
+            Grid.Row="2"
+            Grid.Column="1"
+            VerticalAlignment="Bottom"
+            />
     </Grid>
 </Window>
