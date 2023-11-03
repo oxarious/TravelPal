@@ -22,14 +22,7 @@ namespace TravelPal
             }
         }
 
-        public static bool RemoveUser()
-        {
-            return true;
-        }
-        public static bool UpdateUsername()
-        {
-            return true;
-        }
+
 
         //Check if username exists in alluser-list, if exits, return false. if not exist, return true. 
         public static bool CheckUsernameAvailability(string username)
@@ -84,11 +77,6 @@ namespace TravelPal
 
         }
 
-        public static void GenerateAdmin()
-        {
-            //Admin admin = new Admin("admin", "password", Countries.Afghanistan);
-            //all.Add(admin);
-        }
 
         public static Countries ParseEnum(string enumToParse)
         {

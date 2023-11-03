@@ -35,49 +35,13 @@ namespace TravelPal
                 return;
             }
 
-            //foreach (var user in UserManager.allUsers)
-            //{
-            //    if ((user.Username == txtUsername.Text) && (user.Password == pwPassword.Password))
-            //    {
-            //        // Found matching user
 
-
-            //        // Open new travelwindow
-
-            //        TravelsWindow travelsWindow = new TravelsWindow();
-            //        travelsWindow.Show();
-            //        Close();
-            //    }
-            //}
 
 
             TravelsWindow travelsWindow = new TravelsWindow();
             travelsWindow.Show();
             Close();
 
-
-
-
-
-            //if (txtUsername.Text != null && txtPassword.Text != null)
-            //{
-            //    bool isUsernameAvailable = UserManager.CheckLogIn(txtUsername.Text, txtPassword.Text);
-
-            //    if (isUsernameAvailable == true)
-            //    {
-            //        //Log in user
-            //        MessageBox.Show("logged in");
-            //    }
-            //    else
-            //    {
-            //        MessageBox.Show("Username or Password was not correct");
-            //    }
-
-            //}
-            //else
-            //{
-            //    MessageBox.Show("Input fields were empty");
-            //}
         }
 
         private void btRegister_Click(object sender, RoutedEventArgs e)

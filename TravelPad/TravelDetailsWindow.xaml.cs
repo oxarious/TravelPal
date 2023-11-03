@@ -16,10 +16,8 @@ namespace TravelPal
             if (UserManager.signedInUser is User)
             {
                 lvTravelDetails.Items.Add(travel);
-                //User u = UserManager.signedInUser as User;
-                //lvTravelDetails.ItemsSource = u.AllTravels;
-            }
 
+            }
 
 
         }

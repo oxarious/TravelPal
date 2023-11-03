@@ -21,7 +21,7 @@ namespace TravelPal
                 MessageBox.Show("That username is already taken");
             }
 
-            //TODO: Fix so it doesnt crash if you dont have any inputs
+
             if (txtRwPassword.Text == "" || txtRwUsername.Text == "" || cbCountries.SelectedItem == null)
             {
                 MessageBox.Show("Please fill in all the info");
