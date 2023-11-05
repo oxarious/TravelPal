@@ -9,7 +9,7 @@ namespace TravelPal
     public partial class TravelDetailsWindow : Window
     {
 
-        //TODO: FÅ DENNA ATT FUNKA
+
         public TravelDetailsWindow(Travel travel)
         {
             InitializeComponent();

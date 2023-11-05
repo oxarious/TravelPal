@@ -94,19 +94,24 @@ namespace TravelPal
             if (UserManager.signedInUser is User u)
             {
                 var selectedItem = lvTravelPlans.SelectedIndex;
+                if (selectedItem == -1)
+                {
+                    MessageBox.Show("Please select an item to remove.");
+                    return;
+                }
+
+
                 u.AllTravels.RemoveAt(selectedItem);
             }
             if (UserManager.signedInUser is Admin)
             {
-                if (lvTravelPlans.Items.Count == 0)
+                if (lvTravelPlans.SelectedIndex == -1)
                 {
                     MessageBox.Show("No Travels to Remove");
                 }
 
-                else
+                else if (lvTravelPlans.SelectedItem != null)
                 {
-
-
                     var SelectedItem = (Travel)((ListViewItem)lvTravelPlans.SelectedItem).Tag;
                     foreach (IUser user in UserManager.allUsers)
                     {
@@ -119,7 +124,9 @@ namespace TravelPal
 
                     }
                 }
+
             }
+
             UpdateListView();
 
 
@@ -129,13 +136,16 @@ namespace TravelPal
 
         private void btShowDetails_Click(object sender, RoutedEventArgs e)
         {
+            if (lvTravelPlans.SelectedItem != null)
+            {
 
-            var selectedItem = (Travel)((ListViewItem)lvTravelPlans.SelectedItem).Tag;
+                var selectedItem = (Travel)((ListViewItem)lvTravelPlans.SelectedItem).Tag;
 
 
-            TravelDetailsWindow detailsWindow = new TravelDetailsWindow(selectedItem);
-            detailsWindow.Show();
-            Close();
+                TravelDetailsWindow detailsWindow = new TravelDetailsWindow(selectedItem);
+                detailsWindow.Show();
+                Close();
+            }
         }
 
     }
