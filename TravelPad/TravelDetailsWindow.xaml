@@ -5,8 +5,35 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:TravelPal"
         mc:Ignorable="d"
-        Title="TravelDetailsWindow" Height="450" Width="800">
+        Title="TravelDetailsWindow" Height="450" Width="600" Background="MediumSlateBlue">
     <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="20"/>
+           
+            <ColumnDefinition/>
+            <ColumnDefinition Width="20"/>
+            
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="20"/>
+            <RowDefinition Height="6*"/>
+            <RowDefinition />
+            <RowDefinition Height="20"/>
+        </Grid.RowDefinitions>
+
+        <ListView 
+            Name="lvTravelDetails"
+            Grid.Row="1"
+            Grid.Column="1"
+            Grid.ColumnSpan="2"/>
+       
         
+        <Button 
+            Name="btGoBack"
+            Content="Go Back"
+            Grid.Row="2"
+            Grid.Column="1" Click="btGoBack_Click"
+            Background="MintCream"/>
+
     </Grid>
 </Window>

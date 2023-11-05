@@ -1,16 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Shapes;
+﻿using System.Windows;
+using TravelPal.TravelClasses;
 
 namespace TravelPal
 {
@@ -19,9 +8,25 @@ namespace TravelPal
     /// </summary>
     public partial class TravelDetailsWindow : Window
     {
-        public TravelDetailsWindow()
+
+
+        public TravelDetailsWindow(Travel travel)
         {
             InitializeComponent();
+            if (UserManager.signedInUser is User)
+            {
+                lvTravelDetails.Items.Add(travel);
+
+            }
+
+
+        }
+
+        private void btGoBack_Click(object sender, RoutedEventArgs e)
+        {
+            TravelsWindow detailsWindow = new();
+            detailsWindow.Show();
+            Close();
         }
     }
 }

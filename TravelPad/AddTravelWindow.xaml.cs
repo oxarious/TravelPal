@@ -1,16 +1,6 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Shapes;
 
 namespace TravelPal
 {
@@ -19,9 +9,124 @@ namespace TravelPal
     /// </summary>
     public partial class AddTravelWindow : Window
     {
+
+
         public AddTravelWindow()
         {
             InitializeComponent();
+            cbCountry.ItemsSource = Enum.GetNames(typeof(Countries));
+            cbTravelType.ItemsSource = Enum.GetNames(typeof(TravelType));
+            cbxAllInclusive.Visibility = Visibility.Hidden;
+            lbWorkDetails.Visibility = Visibility.Hidden;
+            txtMeetingDetails.Visibility = Visibility.Hidden;
+
         }
+
+        //OM work är valt visas "Work details" eller om vacation är valt visas "All inclusive" 
+        private void cbTravelType_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            var selectedItem = (string)cbTravelType.SelectedItem;
+            if (selectedItem == "Work")
+            {
+                lbWorkDetails.Visibility = Visibility.Visible;
+                cbxAllInclusive.Visibility = Visibility.Hidden;
+                txtMeetingDetails.Visibility = Visibility.Visible;
+            }
+            if (selectedItem == "Vacation")
+            {
+                cbxAllInclusive.Visibility = Visibility.Visible;
+                lbWorkDetails.Visibility = Visibility.Hidden;
+                txtMeetingDetails.Visibility = Visibility.Hidden;
+
+            }
+
+        }
+
+        private void btSaveTravel_Click(object sender, RoutedEventArgs e)
+        {
+            if (UserManager.signedInUser is User)
+            {
+
+
+
+                // TODO: If ayn of the feilds are not input, show wrong message
+                if (cbTravelType.SelectedItem != null && txtCity.Text != null && txtCity.Text != "" && cbCountry.SelectedItem != null && txtTravelers.Text != null)
+
+                {
+                    int parsedValue;
+                    if (!int.TryParse(txtTravelers.Text, out parsedValue))
+                    {
+                        MessageBox.Show("Please insert only numbers in the feild");
+                    }
+                    else
+
+                    {
+
+                        if ((string)cbTravelType.SelectedItem == "Work")
+                        {
+
+                            WorkTrip workTrip = TravelManager.AddWorkTrip(TravelManager.ParseEnum(cbCountry.Text), txtCity.Text, parsedValue, txtMeetingDetails.Text);
+                            ListViewItem listViewItem = new ListViewItem();
+                            listViewItem.Tag = workTrip;
+                            listViewItem.Content = workTrip;
+                            //lvTravel.Items.Add(listViewItem);
+                            MessageBox.Show($"Travel saved. Go back to get a better overview of your travels");
+                            //TravelManager.allTravels.Add(workTrip);
+
+                            User user = UserManager.signedInUser as User;
+                            user.AllTravels.Add(workTrip);
+
+
+                        }
+                        if ((string)cbTravelType.SelectedItem == "Vacation")
+                        {
+
+                            Vacation vacation = TravelManager.AddVacation(TravelManager.ParseEnum(cbCountry.Text), txtCity.Text, parsedValue, cbxAllInclusive.IsChecked ?? false); ;
+                            ListViewItem listViewItemVacation = new ListViewItem();
+                            listViewItemVacation.Tag = vacation;
+                            listViewItemVacation.Content = vacation;
+                            //lvTravel.Items.Add(listViewItemVacation);
+                            MessageBox.Show($"Travel saved. Go back to get a better overview of your travels");
+                            //TravelManager.allTravels.Add(vacation);
+                            User user = UserManager.signedInUser as User;
+                            user.AllTravels.Add(vacation);
+
+
+
+                        }
+                    }
+
+                }
+                else if (cbTravelType.SelectedItem == null || txtCity.Text == null || cbCountry.SelectedItem == null || txtTravelers.Text == null)
+                {
+                    MessageBox.Show("Please fill in all the different options.");
+
+                }
+
+            }
+            else if (UserManager.signedInUser is Admin)
+            {
+                MessageBox.Show("Cant save trips as admin");
+            }
+        }
+
+
+        private void btGoBack_Click(object sender, RoutedEventArgs e)
+        {
+
+            TravelsWindow travelsWindow = new TravelsWindow();
+            travelsWindow.Show();
+            Close();
+
+        }
+
+
+
     }
 }
+
+
+
+
+
+

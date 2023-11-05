@@ -5,8 +5,110 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:TravelPal"
         mc:Ignorable="d"
-        Title="AddTravelWindow" Height="450" Width="800">
+        Title="AddTravelWindow" Height="500" Width="800" Background="MediumSlateBlue">
     <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="20"/>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+            <ColumnDefinition Width="20"/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="20"/>
+            <RowDefinition Height="40"/>
+            <RowDefinition Height="40"/>
+            
+            <RowDefinition Height="40" />
+            <RowDefinition Height=" 50"/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            
+            <RowDefinition Height="20"/>
+        </Grid.RowDefinitions>
+        <Label 
+            
+            Content="Travel Type"
+            
+            Grid.Row="1"
+            Grid.Column="1"
+            Background="MintCream"/>
         
+        <Label 
+            Content="City"
+            Grid.Row="1"
+            Grid.Column="2"
+            Background="MintCream"/>
+        <Label Content="Country"
+               Grid.Row="1"
+               Grid.Column="3"
+               Background="MintCream"/>
+        <Label Content="No of travelers"
+               Grid.Row="1"
+               Grid.Column="4"
+               Background="MintCream"/>
+        <ComboBox
+            
+            Name="cbTravelType"
+            Grid.Row="2"
+            Grid.Column="1" SelectionChanged="cbTravelType_SelectionChanged"
+            />
+        <ComboBox 
+            Name ="cbCountry"
+            Grid.Row="2"
+            Grid.Column="3"/>
+        <TextBox
+            Name="txtCity"
+            Grid.Row="2"
+            Grid.Column="2"
+            />
+        <TextBox
+            Name="txtTravelers"
+            Grid.Row="2"
+            Grid.Column="4"
+            />
+        <CheckBox 
+            Content="All Inclusive?"
+            Name="cbxAllInclusive"
+            Grid.Row="3"
+            Grid.Column="1" 
+            />
+        <TextBox
+            
+            Name="txtMeetingDetails"
+            Grid.Row="5"
+            Grid.Column="1"/>
+
+     
+        <Button 
+            Name="btSaveTravel"
+            Content="Save Travel"
+            Grid.Row="5"
+            Grid.Column="3" Click="btSaveTravel_Click"
+            Background="MintCream"/>
+        <Button 
+            Name="btGoBack"
+            Content="Go Back"
+            Grid.Row="5"
+            Grid.Column="4" Click="btGoBack_Click"
+            Background="MintCream"/>
+     
+
+        <Label 
+            Name ="lbWorkDetails"
+            Content="Type work details below"
+            Background="DarkSalmon"
+            Height="30"
+            Grid.Column="1"
+            Grid.Row="4"
+          
+            />
+
+
+
+
     </Grid>
 </Window>

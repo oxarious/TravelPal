@@ -39,11 +39,13 @@
         <Button Name="btLogIn"
                 Content="Log In"
                 Grid.Row="5"
-                Grid.Column="2" Click="btLogIn_Click"/>
+                Grid.Column="2" Click="btLogIn_Click"
+                Background="MintCream"/>
 
         <Button Name="btRegister"
                 Grid.Column="2"
                 Grid.Row="6"
-                Content="If you want to register a new user, press here" Click="btRegister_Click"/>
+                Content="If you want to register a new user, press here" Click="btRegister_Click"
+                Background="MintCream"/>
     </Grid>
 </Window>

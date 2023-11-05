@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:TravelPal"
         mc:Ignorable="d"
-        Title="TravelsWindow" Height="450" Width="800">
+        Title="TravelsWindow" Height="450" Width="800" Background="MediumSlateBlue">
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="20"/>
@@ -37,37 +37,49 @@
             Name="btShowDetails"
             Content="Show Details"
             Grid.Row="5"
-            Grid.Column="2"
+            Grid.Column="2" Click="btShowDetails_Click"
+            Background="MintCream"
             />
         <Button 
             Name ="btRemoveTravel"
             Content="Remove"
             Grid.Row="6"
-            Grid.Column="2"/>
+            Grid.Column="2" Click="btRemoveTravel_Click"
+            Background="MintCream"/>
         <Button 
             Name="btLogOut"
             Content="Log Out"
             Grid.Row="7"
-            Grid.Column="2" Click="btLogOut_Click"/>
+            Grid.Column="2" Click="btLogOut_Click"
+            Background="MintCream"/>
         <Button 
           Name="btAboutus"
           Content="About Us"
           Grid.Row="7"
-          Grid.Column="1" Click="btAboutus_Click"/>
+          Grid.Column="1" Click="btAboutus_Click"
+            Background="MintCream"/>
         <Button 
             Name="btAddTravel"
             Content="Add New Travel"
             Grid.Row="5"
             Grid.Column="1"
-            Grid.RowSpan="2"/>
+            Grid.RowSpan="2" Click="btAddTravel_Click"
+            Background="MintCream"/>
         <Label 
             Name="lbLoggedInUser"
-            Content="Logged in USer"
+            Content="Logged in User"
             Grid.Row="1"
             Grid.Column="1"
             Grid.RowSpan="2"
             FontSize="30"
             HorizontalContentAlignment="Center"
+            />
+        <Label 
+            Name="lbMyTraves"  
+            Content="My Travels"
+            Grid.Row="2"
+            Grid.Column="1"
+            VerticalAlignment="Bottom"
             />
     </Grid>
 </Window>

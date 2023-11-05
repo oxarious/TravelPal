@@ -20,6 +20,14 @@ namespace TravelPal
             {
                 MessageBox.Show("That username is already taken");
             }
+
+
+            if (txtRwPassword.Text == "" || txtRwUsername.Text == "" || cbCountries.SelectedItem == null)
+            {
+                MessageBox.Show("Please fill in all the info");
+                return;
+            }
+
             User newUser = UserManager.CreateUser(txtRwUsername.Text, txtRwPassword.Text, UserManager.ParseEnum(cbCountries.SelectedItem.ToString()));
             UserManager.allUsers.Add(newUser);
 
